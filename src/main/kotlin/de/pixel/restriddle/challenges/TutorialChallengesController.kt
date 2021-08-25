@@ -14,9 +14,9 @@ class TutorialChallengesController {
 
     @GetMapping("/lHjKMVVICUFo355UVqWk")
     @ResponseBody
-    fun `lHjKMVVICUFo355UVqWk`(): ResponseEntity<String> = ResponseEntity.ok("<img src=\"goodjob.png\">")
+    fun `lHjKMVVICUFo355UVqWk`(): ResponseEntity<String> = ResponseEntity.ok("<html><body><img src=\"goodjob.png\"></body></html>")
 
-    var tryAgainCounter: Int = 0
+    private var tryAgainCounter = 0
 
     @GetMapping("/O5ZdvcloSZ6J42zZh3vy")
     @ResponseBody
@@ -26,7 +26,7 @@ class TutorialChallengesController {
             return ResponseEntity.ok("Try again!")
         }
         else
-            return ResponseEntity.ok("<a href=\"KHV8vhIwGcDaBHDS43Em\">This way</a>")        
+            return ResponseEntity.ok("<html><body><a href=\"KHV8vhIwGcDaBHDS43Em\">This way</a></body></html>")        
     }
    
     @GetMapping("/KHV8vhIwGcDaBHDS43Em")
@@ -35,7 +35,7 @@ class TutorialChallengesController {
         if (allParams.isEmpty())
             return ResponseEntity.ok("Give me more options!")
         else
-            return ResponseEntity.ok("<a href=\"urCMB0OlZkeU3OXNNFxP\">You crazy bitch!</a>")        
+            return ResponseEntity.ok("<html><body><a href=\"urCMB0OlZkeU3OXNNFxP\">You crazy bitch!</a></body></html>")        
     }
 
     @GetMapping("/urCMB0OlZkeU3OXNNFxP")
