@@ -95,11 +95,73 @@ class TutorialChallengesController {
 
     @GetMapping("/" + level8)
     @ResponseBody
-    fun level8() = HtmlPage("level8").addElement("\uD83E\uDD73").build()
+    fun level8() = HtmlPage("level8").addLink(level9 + "?direction=", "This way").build()
+
+
+    private var xPos = 20
+    private var yPos = 11
+    private var xPosTarget = 120
+    private var yPosTarget = 30
+    private val xSize = 140
+    private val ySize = 40
 
     @GetMapping("/" + level9)
     @ResponseBody
-    fun level9() = HtmlPage("level9").addElement("\uD83E\uDD73").build()
+    fun level9(@RequestParam(defaultValue = "") direction: String): ResponseEntity<String> {
+        val page = HtmlPage("level9")
+
+        // Move
+        if (direction == "up") {
+            yPos--
+            yPosTarget++
+        } else if (direction == "down") {
+            yPos++
+            yPosTarget--
+        } else if (direction == "right") {
+            xPos++
+            xPosTarget--
+        } else if (direction == "left") {
+            xPos--
+            xPosTarget++
+        }
+
+        // Validate Positions
+        if (xPos < 0)
+            xPos = 0
+        if (xPos >= xSize)
+            xPos = xSize - 1
+        if (yPos < 0)
+            yPos = 0
+        if (yPos >= ySize)
+            yPos = ySize - 1
+        if (xPosTarget < 0)
+            xPosTarget = 0
+        if (xPosTarget >= xSize)
+            xPosTarget = xSize - 1
+        if (xPosTarget < 0)
+            xPosTarget = 0
+        if (xPosTarget >= ySize)
+            xPosTarget = ySize - 1
+
+        if (xPos == xPosTarget && yPos == yPosTarget)
+            return page.addElement("<a href=\"$level10\">I'm rich bitch!</a>").build()
+
+        page.addHeadline("I need dollars, dollars, dollars is what I need...")
+
+        for (i in 0..ySize) {
+            var element = ""
+            for (j in 0..xSize) {
+                if (i == yPos && j == xPos)
+                    element += '@'
+                else if (i == yPosTarget && j == xPosTarget)
+                    element += '$'
+                else
+                    element += '#'
+            }
+            page.addElement(element + "<br>")
+        }
+        return page.build()
+    } 
 
     @GetMapping("/" + level10)
     @ResponseBody
