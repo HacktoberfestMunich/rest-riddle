@@ -64,7 +64,7 @@ class TutorialChallengesController {
 
     @GetMapping("/" + level5)
     @ResponseBody
-    fun level5(@RequestParam security: String) {
+    fun level5(@RequestParam security: String): ResponseEntity<String> {
         if (security in listOf("none", "off")) 
             return HtmlPage("level5").addElement("<a href=\"$level6\">decrypted!</a>").build()
         else if (security.equals("sha1"))
