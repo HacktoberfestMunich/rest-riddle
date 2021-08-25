@@ -111,37 +111,42 @@ class TutorialChallengesController {
         val page = HtmlPage("level9")
 
         // Move
-        if (direction == "up") {
-            yPos--
-            yPosTarget++
-        } else if (direction == "down") {
-            yPos++
-            yPosTarget--
-        } else if (direction == "right") {
-            xPos++
-            xPosTarget--
-        } else if (direction == "left") {
-            xPos--
-            xPosTarget++
+        when (direction) {
+            "up" -> {
+                yPos--
+                yPosTarget++
+            }
+            "down" -> {
+                yPos++
+                yPosTarget--
+            }
+            "right" -> {
+                xPos++
+                xPosTarget--
+            }
+            "left" -> {
+                xPos--
+                xPosTarget++
+            }
         }
 
         // Validate Positions
         if (xPos < 0)
             xPos = 0
-        if (xPos >= xSize)
-            xPos = xSize - 1
+        if (xPos > xSize)
+            xPos = xSize
         if (yPos < 0)
             yPos = 0
-        if (yPos >= ySize)
-            yPos = ySize - 1
+        if (yPos > ySize)
+            yPos = ySize
         if (xPosTarget < 0)
             xPosTarget = 0
-        if (xPosTarget >= xSize)
-            xPosTarget = xSize - 1
-        if (xPosTarget < 0)
-            xPosTarget = 0
-        if (xPosTarget >= ySize)
-            xPosTarget = ySize - 1
+        if (xPosTarget > xSize)
+            xPosTarget = xSize
+        if (yPosTarget < 0)
+            yPosTarget = 0
+        if (yPosTarget > ySize)
+            yPosTarget = ySize
 
         if (xPos == xPosTarget && yPos == yPosTarget)
             return page.addElement("<a href=\"$level10\">I'm rich bitch!</a>").build()
