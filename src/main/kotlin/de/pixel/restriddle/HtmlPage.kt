@@ -30,5 +30,5 @@ class HtmlPage {
 
     override fun toString(): String = prefix + elements.joinToString(separator = "\n") + suffix
 
-    fun build() = ResponseEntity.ok(toString())
+    fun build(): ResponseEntity<String> = ResponseEntity.ok(toString())
 }
