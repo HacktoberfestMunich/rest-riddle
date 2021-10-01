@@ -1,10 +1,10 @@
 import java.util.regex.Matcher
 
 plugins {
-    id 'org.springframework.boot' version "2.5.3"
+    id 'org.springframework.boot' version "2.5.5"
     id 'io.spring.dependency-management' version "1.0.11.RELEASE"
-    id 'org.jetbrains.kotlin.jvm' version "1.5.21"
-    id 'org.jetbrains.kotlin.plugin.spring' version "1.5.21"
+    id 'org.jetbrains.kotlin.jvm' version "1.5.31"
+    id 'org.jetbrains.kotlin.plugin.spring' version "1.5.31"
     id 'net.researchgate.release' version '2.8.1'
 }
 
@@ -22,7 +22,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
 }
 compileKotlin {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_16
