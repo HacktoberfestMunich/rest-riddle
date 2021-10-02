@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("anyOptions")
-class AnyOptionsChallenge(@Qualifier("tryagain") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "More options", nextChallenge) {
+class AnyOptionsChallenge(@Qualifier("fanout") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "More options", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "KHV8vhIwGcDaBHDS43Em"
