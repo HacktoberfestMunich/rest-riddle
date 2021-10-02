@@ -25,7 +25,7 @@ class HtmlPage {
 
 
     fun addImage(path: String): HtmlPage = addElement("<img src=\"$path\">")
-    fun addLink(path: String, description: String): HtmlPage = addElement("<a href=\"$path\">$description</a>")
+    fun addLink(path: String, description: String, newPage: Boolean = false): HtmlPage = addElement("<a ${if (newPage) "target='_blank'" else ""} href=\"$path\">$description</a>")
     fun addHeadline(content: String, level: Int = 1): HtmlPage = addElement("<h$level>$content</h$level>")
 
     override fun toString(): String = prefix + elements.joinToString(separator = "\n") + suffix
