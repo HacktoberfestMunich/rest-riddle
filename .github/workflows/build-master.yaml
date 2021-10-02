@@ -23,10 +23,3 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Run tests
         run: ./gradlew --stacktrace check
-      - name: Build Artefact
-        run: ./gradlew --stacktrace bootJar
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: build/libs/rest-riddle-*.jar
