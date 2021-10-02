@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("caesar")
-class CaesarChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, Caesar.decrypt("A secure encryption?"), nextChallenge) {
+class CaesarChallenge(@Qualifier("allCookies") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, Caesar.decrypt("A secure encryption?"), nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "HUtTz3r5gDwWFjgicaRA"
