@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("hash")
-class HashChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Try Again Challenge", nextChallenge) {
+class HashChallenge(@Qualifier("userAgent") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Try Again Challenge", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "O5ZdvcloSZ6J42zZh3vy"
