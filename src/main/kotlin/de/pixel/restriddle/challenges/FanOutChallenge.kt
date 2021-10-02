@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController
 @Qualifier("fanout")
 class FanOutChallenge(
     @Qualifier("dollar") controller1: ChallengeController,
-    @Qualifier("tryagain") controller2: ChallengeController
+    @Qualifier("tryagain") controller2: ChallengeController,
+    @Qualifier("caesar") controller3: ChallengeController
 ) : ChallengeController(ENTRYPOINT, "Continue", null) {
 
     companion object {
@@ -21,6 +22,7 @@ class FanOutChallenge(
     init {
         controllers.add(controller1)
         controllers.add(controller2)
+        controllers.add(controller3)
     }
 
     @GetMapping("/${ENTRYPOINT}")
