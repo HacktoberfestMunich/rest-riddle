@@ -19,3 +19,7 @@ To start the project via terminal type:
 ```
 
 The project can of course also be opened with any IDE, for myself I use IntelliJ IDEA.
+
+## Challenge overview
+
+To see the flow of the current challenges look at [the draw.io diagram](./challenges.drawio.png)
