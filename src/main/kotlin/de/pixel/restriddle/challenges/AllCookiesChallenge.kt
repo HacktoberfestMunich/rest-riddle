@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest
 
 @RestController
 @Qualifier("allCookies")
-class AllCookiesChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Video time", nextChallenge) {
+class AllCookiesChallenge(@Qualifier("hackerman") nextChallenge: ChallengeController) :
+    ChallengeController(ENTRYPOINT, "Video time", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "gQbFIbllHK6bjlQ95A22"
