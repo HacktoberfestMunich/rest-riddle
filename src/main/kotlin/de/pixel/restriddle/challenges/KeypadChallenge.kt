@@ -13,7 +13,7 @@ class KeypadChallenge(@Qualifier("end") nextChallenge: ChallengeController) : Ch
 
     companion object {
         const val PASSWORD_SESSION_KEY = "password"
-        const val ENTRYPOINT = "iJ6CYoYaGtO8DgAM"
+        const val ENTRYPOINT = "uQUpNG1dVvaIO8aX21DS"
         const val INITIAL_PASSWORD = "____"
     }
 

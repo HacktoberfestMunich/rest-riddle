@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("userAgent")
-class UserAgentChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "We know what you are using", nextChallenge) {
+class UserAgentChallenge(@Qualifier("fanout") nextChallenge: ChallengeController) : ChallengeController(
+    ENTRYPOINT,
+    "We know what you are using", nextChallenge
+) {
 
     companion object {
         const val ENTRYPOINT = "6UakTRiHRsfpnPw8RNly"
