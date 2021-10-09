@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse
 @Qualifier("hash")
 class HashChallenge(
     @Qualifier("movingLink") nextChallenge: ChallengeController,
-    @Qualifier("fanout") private val hashDecryptChallenge: ChallengeController
+    @Qualifier("timeslice") private val hashDecryptChallenge: ChallengeController
 ) : ChallengeController(
     ENTRYPOINT, "Hash me baby one more time",
     nextChallenge
