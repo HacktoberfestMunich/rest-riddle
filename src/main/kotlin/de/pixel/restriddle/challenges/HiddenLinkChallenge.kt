@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("hiddenLink")
-class HiddenLinkChallenge(@Qualifier("anyOptions") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Find me", nextChallenge) {
+class HiddenLinkChallenge(@Qualifier("disabledButton") nextChallenge: ChallengeController) :
+    ChallengeController(ENTRYPOINT, "Find me", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "q6m1HsG2x85HD3S3CGTO"
