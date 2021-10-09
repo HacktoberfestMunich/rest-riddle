@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("userAgent")
-class UserAgentChallenge(@Qualifier("fanout") nextChallenge: ChallengeController) : ChallengeController(
+class UserAgentChallenge(@Qualifier("deleteme") nextChallenge: ChallengeController) : ChallengeController(
     ENTRYPOINT,
     "We know what you are using", nextChallenge
 ) {
