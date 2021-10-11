@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest
 
 @RestController
 @Qualifier("allCookies")
-class AllCookiesChallenge(@Qualifier("hackerman") nextChallenge: ChallengeController) :
+class AllCookiesChallenge(@Qualifier("userAgent") nextChallenge: ChallengeController) :
     ChallengeController(ENTRYPOINT, "Video time", nextChallenge) {
 
     companion object {

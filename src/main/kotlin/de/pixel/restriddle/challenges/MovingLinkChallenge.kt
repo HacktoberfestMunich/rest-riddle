@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("movingLink")
-class MovingLinkChallenge(@Qualifier("userAgent") nextChallenge: ChallengeController) : ChallengeController(
+class MovingLinkChallenge(@Qualifier("hackerman") nextChallenge: ChallengeController) : ChallengeController(
     ENTRYPOINT, "Catch me",
     nextChallenge
 ) {

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("deleteme")
-class DeleteMeChallenge(@Qualifier("fanout") nextChallenge: ChallengeController) : ChallengeController(
+class DeleteMeChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(
     ENTRYPOINT, "Delete me",
     nextChallenge
 ) {
