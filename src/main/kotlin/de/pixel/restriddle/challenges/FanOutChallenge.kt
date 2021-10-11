@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @Qualifier("fanout")
 class FanOutChallenge(
-    @Qualifier("dollar") controller1: ChallengeController,
+    @Qualifier("simultanPress") controller1: ChallengeController,
     @Qualifier("tryagain") controller2: ChallengeController,
     @Qualifier("caesar") controller3: ChallengeController
 ) : ChallengeController(ENTRYPOINT, "Continue", null) {
