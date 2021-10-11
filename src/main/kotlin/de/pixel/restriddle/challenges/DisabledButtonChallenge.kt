@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse
 
 @RestController
 @Qualifier("disabledButton")
-class DisabledButtonChallenge(@Qualifier("anyOptions") nextChallenge: ChallengeController) : ChallengeController(
+class DisabledButtonChallenge(@Qualifier("quest") nextChallenge: ChallengeController) : ChallengeController(
     ENTRYPOINT, "Continue",
     nextChallenge
 ) {

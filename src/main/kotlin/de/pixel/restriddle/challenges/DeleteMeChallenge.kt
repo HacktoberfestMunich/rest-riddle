@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("deleteme")
-class DeleteMeChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(
-    ENTRYPOINT, "Delete me",
-    nextChallenge
-) {
+class DeleteMeChallenge(nextChallenge: PotionEnding) : ChallengeController(ENTRYPOINT, "Delete me", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "w7MTEs2ctCAQsUzBqtlT"

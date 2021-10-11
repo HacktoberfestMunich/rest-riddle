@@ -8,5 +8,5 @@ abstract class ChallengeController(
     internal val nextChallenge: ChallengeController?
 ) {
 
-    fun getPage(): HtmlPage = HtmlPage(title).addHeadline(title)
+    open fun getPage(): HtmlPage = HtmlPage(title).addHeadline(title)
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest
 
 @RestController
 @Qualifier("keypad")
-class KeypadChallenge(@Qualifier("end") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Have you heard about the keypad?", nextChallenge) {
+class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOINT, "Have you heard about the keypad?", nextChallenge) {
 
     companion object {
         const val PASSWORD_SESSION_KEY = "password"
