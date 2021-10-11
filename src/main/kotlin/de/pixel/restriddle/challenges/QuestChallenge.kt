@@ -40,10 +40,10 @@ class QuestChallenge(
                 <h3>After your adventure return here and name the 4 blessed items:</h3>
                 <p>
                     <form action="$ENTRYPOINT/post" method="post">
-                        <input type="text" id="item" name="input">
-                        <input type="text" id="item" name="input">
-                        <input type="text" id="item" name="input">
-                        <input type="text" id="item" name="input">
+                        <input type="text" id="item" name="items">
+                        <input type="text" id="item" name="items">
+                        <input type="text" id="item" name="items">
+                        <input type="text" id="item" name="items">
                       <input type="submit" value="Check the names">
                     </form>
                 </p>
@@ -55,14 +55,14 @@ class QuestChallenge(
 
 
     @PostMapping("/${ENTRYPOINT}/post")
-    fun itemNames(@RequestParam("item") items: List<String>, response: HttpServletResponse) {
+    fun itemNames(@RequestParam("items") items: List<String>, response: HttpServletResponse) {
         if (items.size == 4
             && items.contains(SWORD_NAME)
             && items.contains(ARMOR_NAME)
             && items.contains(POTIONS_NAME)
             && items.contains(BELT_NAME)
         ) {
-            response.sendRedirect(end.entrypoint)
+            response.sendRedirect("/${end.entrypoint}")
         } else {
             response.sendRedirect("/${ENTRYPOINT}")
         }

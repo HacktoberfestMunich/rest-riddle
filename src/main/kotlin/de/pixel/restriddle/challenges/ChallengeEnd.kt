@@ -16,7 +16,7 @@ class ChallengeEnd : ChallengeController(ENTRYPOINT, "End of line", null) {
     @GetMapping(ENTRYPOINT)
     fun challenge(): ResponseEntity<String> {
         return getPage()
-            .addHeadline("Your reached one end of the challenges. But there might be more!", 2)
+            .addHeadline("You reached the end of the challenges. Dont forget about documenting", 2)
             .addHeadline("\uD83E\uDD73").build()
     }
 
