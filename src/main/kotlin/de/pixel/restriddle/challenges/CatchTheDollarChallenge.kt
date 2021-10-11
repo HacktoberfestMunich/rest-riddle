@@ -10,7 +10,7 @@ import java.net.URI
 
 @RestController
 @Qualifier("dollar")
-class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(ENTRYPOINT, "More options", nextChallenge) {
+class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(ENTRYPOINT, "Dollars everywhere", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "rSZUgsK56oRY3oYk5OxD"
