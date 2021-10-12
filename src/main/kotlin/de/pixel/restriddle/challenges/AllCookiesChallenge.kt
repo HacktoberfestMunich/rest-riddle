@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest
 @RestController
 @Qualifier("allCookies")
 class AllCookiesChallenge(@Qualifier("userAgent") nextChallenge: ChallengeController) :
-    ChallengeController(ENTRYPOINT, "Video time", nextChallenge) {
+    ChallengeController(ENTRYPOINT, "A wild monster appears...", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "gQbFIbllHK6bjlQ95A22"
@@ -21,7 +21,7 @@ class AllCookiesChallenge(@Qualifier("userAgent") nextChallenge: ChallengeContro
     fun challenge(servletRequest: HttpServletRequest): ResponseEntity<String> {
         val cookies = servletRequest.cookies
         return if (cookies != null && cookies.count() > 5) {
-            getPage().addElement("Well done!").addLink(nextChallenge?.entrypoint.orEmpty(), "Next").build()
+            getPage().addElement("Well done!").addLink(nextChallenge?.entrypoint.orEmpty(), "Continue").build()
         } else {
             getPage().addLink(COOKIE_YOUTUBE, "Watch me", true).addElement("We need at least $COOKIE_COUNT").build()
         }
