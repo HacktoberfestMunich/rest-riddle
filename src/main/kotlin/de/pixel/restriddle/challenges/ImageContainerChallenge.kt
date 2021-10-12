@@ -25,6 +25,6 @@ class ImageContainerChallenge(@Qualifier("keypad") nextChallenge: ChallengeContr
     // NEXT ID in image is 'O5ZdvcloSZ6J42zZh3vy'
     @GetMapping("/O5ZdvcloSZ6J42zZh3vy")
     fun imageHash(response: HttpServletResponse) {
-        response.sendRedirect(nextChallenge?.entrypoint.orEmpty())
+        response.sendRedirect("/${nextChallenge?.entrypoint.orEmpty()}")
     }
 }

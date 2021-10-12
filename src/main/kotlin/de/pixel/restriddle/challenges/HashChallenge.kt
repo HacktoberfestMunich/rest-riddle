@@ -50,6 +50,6 @@ class HashChallenge(
     // This hash is encrypted in the hashes above
     @GetMapping("/zBm926L337qs7uUyhRV0")
     fun hashChallengeRedirect(response: HttpServletResponse) {
-        response.sendRedirect(hashDecryptChallenge.entrypoint)
+        response.sendRedirect("/${hashDecryptChallenge.entrypoint}")
     }
 }
