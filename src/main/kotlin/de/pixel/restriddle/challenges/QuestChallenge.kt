@@ -28,7 +28,7 @@ class QuestChallenge(
             .addElement(
                 """
                 <p>
-                A huge dragon appears on the horizon. To protect your land and solve all given puzzles of the king, you need
+                A huge dragon appears on the horizon. To protect your land and solve all 20 given puzzles of the king, you need
                 to collect the 4 blessed items. You can find them at the end of the following challenges. 
                 </p>
                 <h3>Find them and defeat the dragon</h3>
