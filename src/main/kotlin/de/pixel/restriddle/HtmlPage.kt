@@ -31,7 +31,7 @@ class HtmlPage {
     }
 
 
-    fun addImage(path: String): HtmlPage = addElement("<img src=\"$path\">")
+    fun addImage(path: String, size: Int = 300): HtmlPage = addElement("<img style=\"max-width:${size}px;\" src=\"$path\"><br>")
     fun addLink(path: String, description: String, newPage: Boolean = false): HtmlPage =
         addElement(
             "<a ${
