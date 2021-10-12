@@ -9,14 +9,17 @@ abstract class ItemEnding(entrypoint: String, private val imagePath: String, pri
     entrypoint, "", null
 ) {
 
-    override fun getPage() = HtmlPage("You reached a blessed item.")
-        .addHeadline("You reached a blessed item.")
-        .addImage(imagePath)
-        .addElement(
-            """
+    override fun getPage(): HtmlPage {
+        super.getPage()
+        return HtmlPage("You reached a blessed item.")
+            .addHeadline("You reached a blessed item.")
+            .addImage(imagePath)
+            .addElement(
+                """
             <p>You found the "$itemname". This will be useful to defeat a dragon.</p>
         """.trimIndent()
-        )
+            )
+    }
 }
 
 @RestController
