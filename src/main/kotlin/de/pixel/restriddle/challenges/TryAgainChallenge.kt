@@ -13,7 +13,7 @@ import kotlin.time.ExperimentalTime
 @RestController
 @Qualifier("tryagain")
 class TryAgainChallenge(@Qualifier("imageContainer") nextChallenge: ChallengeController) :
-    ChallengeController(ENTRYPOINT, "Try Again Challenge", nextChallenge) {
+    ChallengeController(ENTRYPOINT, "Tree trunk", nextChallenge) {
 
     companion object {
         private val LOGGER = LoggerFactory.getLogger(TryAgainChallenge::class.java)
@@ -33,9 +33,12 @@ class TryAgainChallenge(@Qualifier("imageContainer") nextChallenge: ChallengeCon
 
         return if (tryAgainCounter < TRY_COUNTS) {
             tryAgainCounter++
-            page.addElement("Try again!").build()
+            page
+                .addElement("There is a big trunk of a tree in the way. Fortunately you have an axe with you.<br>")
+                .addElement("You swing the axe and hit it into the wood.")
+                .build()
         } else {
-            page.addLink(nextChallenge?.entrypoint.orEmpty(), "Next").build()
+            page.addLink(nextChallenge?.entrypoint.orEmpty(), "Pass the split trunk.").build()
         }
     }
 
