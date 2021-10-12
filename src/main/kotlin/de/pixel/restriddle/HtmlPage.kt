@@ -11,6 +11,13 @@ class HtmlPage {
         prefix = "<!DOCTYPE html>\n"
         prefix += "<html lang=\"en\">\n"
         prefix += "<head>\n"
+        prefix += "<style>\n"
+        prefix += "body {\n"
+        prefix += "  background-image:url(foggy_forest.jpg);\n"
+        prefix += "  background-repeat:no-repeat;\n"
+        prefix += "  background-size:cover;\n"
+        prefix += "}\n"
+        prefix += "</style>\n"
         prefix += "    <meta charset=\"UTF-8\">\n"
         if (title != "")
             prefix += "    <title>$title</title>\n"
