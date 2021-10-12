@@ -49,7 +49,7 @@ class QuestChallenge(
                 </p>
             """.trimIndent()
             )
-            .addImage("beast-ga999eb01e.png", 900)
+            .addImage("/beast-ga999eb01e.png", 900)
             .build()
     }
 

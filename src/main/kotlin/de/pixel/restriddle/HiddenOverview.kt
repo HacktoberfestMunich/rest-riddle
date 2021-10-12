@@ -22,7 +22,7 @@ class HiddenOverview(private val challenges: List<ChallengeController>) {
         page.addElement("</div>")
 
         page.addElement("<div style=\"float:right\">")
-        page.addImage("b60NgE2muTfBBWuH90ztq1sbFYx46shpcGd7Ltx21.png", 900)
+        page.addImage("/b60NgE2muTfBBWuH90ztq1sbFYx46shpcGd7Ltx21.png", 900)
         page.addElement("</div>")
         return page.build()
     }

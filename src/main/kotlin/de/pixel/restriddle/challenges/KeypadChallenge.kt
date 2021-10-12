@@ -38,7 +38,7 @@ class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOI
         } else {
             getPage()
                 .addElement("You find a door saying \"Only the leet may pass!\".<br>It is locked by a combination lock. <br>")
-                .addImage("combolock.png")
+                .addImage("/combolock.png")
                 .addElement("Combination:<br>")
                 .addElement("<pre>${newPass}</pre>")
                 .build()

@@ -30,7 +30,7 @@ class HashChallenge(
             response.sendRedirect("/${ENTRYPOINT}?security=sha512")
             return ResponseEntity.ok().build()
         } else {
-            val page = getPage().addElement("The snake tries to confuse you... Is there a way out?<br>").addImage("snake.png")
+            val page = getPage().addElement("The snake tries to confuse you... Is there a way out?<br>").addImage("/snake.png")
             return when (security) {
                 in listOf("none", "off") -> page.addElement("<a href=\"${nextChallenge?.entrypoint.orEmpty()}\">Thissss way!</a>")
                     .build()

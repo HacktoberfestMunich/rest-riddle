@@ -17,7 +17,7 @@ class CaesarChallenge(@Qualifier("allCookies") nextChallenge: ChallengeControlle
     fun challenge(): ResponseEntity<String> {
         return getPage()
             .addElement("Will this help find the way?<br>")
-            .addImage("cypher_disk.png")
+            .addImage("/cypher_disk.png")
             .addLink(Caesar.encrypt(nextChallenge?.entrypoint.orEmpty()), Caesar.decrypt("Go this way...")).build()
     }
 }

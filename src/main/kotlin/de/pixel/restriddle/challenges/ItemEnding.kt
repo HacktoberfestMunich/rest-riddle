@@ -13,7 +13,7 @@ abstract class ItemEnding(entrypoint: String, private val imagePath: String, pri
         super.getPage()
         return HtmlPage("You reached a blessed item.")
             .addHeadline("You reached a blessed item.")
-            .addImage(imagePath)
+            .addImage("/$imagePath")
             .addElement(
                 """
             <p>You found the "$itemname". This will be useful to defeat a dragon.</p>

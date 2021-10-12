@@ -22,7 +22,8 @@ class AnyOptionsChallenge(@Qualifier("stash") nextChallenge: ChallengeController
         return if (allParams.isNotEmpty()) {
             getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "!").build()
         } else {
-            return getPage().addElement("You continue to follow the narrow path when you suddenly see a badly dressed nervous old man sitting behind the next bend. Options! He cries. Why do I have no options?<br>").addImage("insane_guy.png").build()
+            return getPage().addElement("You continue to follow the narrow path when you suddenly see a badly dressed nervous old man sitting behind the next bend. Options! He cries. Why do I have no options?<br>")
+                .addImage("/insane_guy.png").build()
         }
     }
 }
