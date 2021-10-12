@@ -49,7 +49,7 @@ class ArmorEnding : ItemEnding(ENTRYPOINT, "shield-g9c1560ef2.png", QuestChallen
 }
 
 @RestController
-class PotionEnding : ItemEnding(ArmorEnding.ENTRYPOINT, "potion-gd54e796d7.png", QuestChallenge.POTIONS_NAME) {
+class PotionEnding : ItemEnding(ENTRYPOINT, "potion-gd54e796d7.png", QuestChallenge.POTIONS_NAME) {
 
     companion object {
         const val ENTRYPOINT = "RNRSmcunaCbOXXpjzfI2"
@@ -62,7 +62,7 @@ class PotionEnding : ItemEnding(ArmorEnding.ENTRYPOINT, "potion-gd54e796d7.png",
 }
 
 @RestController
-class BeltEnding : ItemEnding(ArmorEnding.ENTRYPOINT, "purple-belt-gb2d6f62ec.png", QuestChallenge.BELT_NAME) {
+class BeltEnding : ItemEnding(ENTRYPOINT, "purple-belt-gb2d6f62ec.png", QuestChallenge.BELT_NAME) {
 
     companion object {
         const val ENTRYPOINT = "70Tk5vGUXkomUhlJewac"
@@ -70,6 +70,7 @@ class BeltEnding : ItemEnding(ArmorEnding.ENTRYPOINT, "purple-belt-gb2d6f62ec.pn
 
     @GetMapping("/$ENTRYPOINT")
     fun ending(): ResponseEntity<String> {
+        #
         return getPage().build()
     }
 }
