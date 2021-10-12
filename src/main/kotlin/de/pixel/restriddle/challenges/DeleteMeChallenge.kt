@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @Qualifier("deleteme")
 class DeleteMeChallenge(@Qualifier("quest") nextChallenge: ChallengeController) :
-    ChallengeController(ENTRYPOINT, "Delete me", nextChallenge) {
+    ChallengeController(ENTRYPOINT, "A Magic Map", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "w7MTEs2ctCAQsUzBqtlT"
@@ -17,11 +17,14 @@ class DeleteMeChallenge(@Qualifier("quest") nextChallenge: ChallengeController) 
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
-        return getPage().build()
+        return getPage()
+            .addElement("Enemies are behind you. You find a magic map shows your tracks.<br>Delete them to avoid that the enemies can chase you down!<br>")
+            .addImage("map.png")
+            .build()
     }
 
     @DeleteMapping("/${ENTRYPOINT}")
     fun deleteMe(): ResponseEntity<String> {
-        return getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "Successfully deleted").build()
+        return getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You escaped!").build()
     }
 }
