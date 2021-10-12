@@ -70,7 +70,6 @@ class BeltEnding : ItemEnding(ENTRYPOINT, "purple-belt-gb2d6f62ec.png", QuestCha
 
     @GetMapping("/$ENTRYPOINT")
     fun ending(): ResponseEntity<String> {
-        #
         return getPage().build()
     }
 }
