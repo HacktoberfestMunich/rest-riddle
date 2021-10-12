@@ -11,7 +11,7 @@ class FanOutChallenge(
     @Qualifier("simultanPress") controller1: ChallengeController,
     @Qualifier("tryagain") controller2: ChallengeController,
     @Qualifier("caesar") controller3: ChallengeController
-) : ChallengeController(ENTRYPOINT, "Continue", null) {
+) : ChallengeController(ENTRYPOINT, "Crossroads", null) {
 
     companion object {
         const val ENTRYPOINT = "XdG2qytTadoo97fG"
@@ -27,7 +27,10 @@ class FanOutChallenge(
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
-        return getPage().addLink(controllers.random().nextChallenge?.entrypoint.orEmpty(), "here").build()
+        return getPage()
+            .addElement("I wonder where these paths will lead me...")
+            .addLink(controllers.random().nextChallenge?.entrypoint.orEmpty(), "...choose a way")
+            .build()
     }
 
 
