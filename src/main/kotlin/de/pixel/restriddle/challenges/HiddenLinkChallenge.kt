@@ -16,7 +16,7 @@ class HiddenLinkChallenge(@Qualifier("disabledButton") nextChallenge: ChallengeC
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
-        return getPage().addElement("Challenges are starting now.<br> Have fun.").addLink(nextChallenge?.entrypoint.orEmpty(), "").build()
+        return getPage().addElement("The path suddenly ends.<br>Where should we go?").addLink(nextChallenge?.entrypoint.orEmpty(), "").build()
     }
 
 

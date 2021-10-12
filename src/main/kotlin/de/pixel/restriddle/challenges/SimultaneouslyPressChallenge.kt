@@ -19,7 +19,7 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
 
     companion object {
         const val ENTRYPOINT = "0k6oKGGPTsSJr3XhTjVc"
-        private const val PEOPLE_COUNT = 3
+        private const val PEOPLE_COUNT = 5
     }
 
     private val resetTimer =
@@ -33,7 +33,8 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
     fun challenge(): ResponseEntity<String> {
         val page = getPage()
         return page
-            .addHeadline("At least 3 people", 5)
+            .addHeadline("A huge rock blocks your way", 5)
+            .addElement("You will need at least five people to move it.")
             .addElement(
                 """
                 <form action="$ENTRYPOINT/post" method="post">

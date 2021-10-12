@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse
 @RestController
 @Qualifier("imageContainer")
 class ImageContainerChallenge(@Qualifier("keypad") nextChallenge: ChallengeController) : ChallengeController(
-    ENTRYPOINT, "Cat in a Image",
+    ENTRYPOINT, "Magic Circle ",
     nextChallenge
 ) {
 
@@ -19,7 +19,7 @@ class ImageContainerChallenge(@Qualifier("keypad") nextChallenge: ChallengeContr
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
-        return getPage().addImage("uDG7KGAIF4QQLQTdxJQS.png").build()
+        return getPage().addElement("There is a magic circle on the ground. Look close!<br>").addImage("mystical_object.png").build()
     }
 
     // NEXT ID in image is 'O5ZdvcloSZ6J42zZh3vy'

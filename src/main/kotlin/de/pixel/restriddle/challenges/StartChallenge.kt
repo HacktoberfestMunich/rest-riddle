@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 import javax.servlet.http.HttpServletRequest
 
 @RestController
-class StartChallenge(@Qualifier("hiddenLink") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Rest-Riddle", nextChallenge) {
+class StartChallenge(@Qualifier("hiddenLink") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "Rest - A Riddle", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "/"
@@ -17,8 +17,10 @@ class StartChallenge(@Qualifier("hiddenLink") nextChallenge: ChallengeController
     fun challenge(servletRequest: HttpServletRequest): ResponseEntity<String> {
         clearCookies(servletRequest)
         return getPage()
-            .addHeadline("This is the starting point for the Rest-Riddle of Hacktoberfest 2021.", 2)
-            .addLink(nextChallenge?.entrypoint.orEmpty(), "First Challenge").build()
+            .addHeadline("Welcome strangers!", 2)
+            .addElement("We have chosen because it is said that you are the strongest and smartest women and man in the country.<br>")
+            .addElement("Please help us solve the challanges to kill the beast that threatens the land.<br>")
+            .addLink(nextChallenge?.entrypoint.orEmpty(), "Follow the path...").build()
     }
 
     private fun clearCookies(servletRequest: HttpServletRequest) {

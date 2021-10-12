@@ -9,7 +9,7 @@ import java.time.LocalTime
 @RestController
 @Qualifier("timeslice")
 class TimeSliceChallenge(@Qualifier("fanout") nextChallenge: ChallengeController) : ChallengeController(
-    ENTRYPOINT, "Timing is everything",
+    ENTRYPOINT, "Closing doors",
     nextChallenge
 ) {
 

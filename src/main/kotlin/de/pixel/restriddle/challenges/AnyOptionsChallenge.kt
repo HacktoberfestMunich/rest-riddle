@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @Qualifier("anyOptions")
 class AnyOptionsChallenge(@Qualifier("stash") nextChallenge: ChallengeController) : ChallengeController(
-    ENTRYPOINT, "More options",
+    ENTRYPOINT, "The crying old man",
     nextChallenge
 ) {
 
@@ -22,7 +22,7 @@ class AnyOptionsChallenge(@Qualifier("stash") nextChallenge: ChallengeController
         return if (allParams.isNotEmpty()) {
             getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You crazy bitch!").build()
         } else {
-            return getPage().addElement("Give me more options!").build()
+            return getPage().addElement("You continue to follow the narrow path when you suddenly see a badly dressed nervous old man sitting behind the next bend. Options! He cries. Why do I have no options?").addImage("insane_guy.png").build()
         }
     }
 }
