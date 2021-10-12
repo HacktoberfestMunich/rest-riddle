@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse
 
 @RestController
 @Qualifier("hackerman")
-class HackermanChallenge(@Qualifier("deleteme") nextChallenge: ChallengeController) :
+class HackermanChallenge(nextChallenge: PotionEnding) :
     ChallengeController(ENTRYPOINT, "The way to Bärenstein", nextChallenge) {
 
     companion object {

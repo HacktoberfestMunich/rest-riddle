@@ -24,7 +24,7 @@ class HtmlPage {
         prefix += "</head>\n"
         prefix += "<body>\n"
     }
-    
+
     fun addElement(element: String): HtmlPage {
         elements.add(element)
         return this
@@ -32,7 +32,13 @@ class HtmlPage {
 
 
     fun addImage(path: String): HtmlPage = addElement("<img src=\"$path\">")
-    fun addLink(path: String, description: String, newPage: Boolean = false): HtmlPage = addElement("<a ${if (newPage) "target='_blank'" else ""} href=\"$path\">$description</a>")
+    fun addLink(path: String, description: String, newPage: Boolean = false): HtmlPage = addElement(
+        "<a ${
+            if (newPage) "target='_blank'"
+            else ""
+        } href=\"/$path\">$description</a>"
+    )
+
     fun addHeadline(content: String, level: Int = 1): HtmlPage = addElement("<h$level>$content</h$level>")
     fun addScript(content: String): HtmlPage = addElement("<script type=\"application/javascript\">\n$content\n</script>")
 
