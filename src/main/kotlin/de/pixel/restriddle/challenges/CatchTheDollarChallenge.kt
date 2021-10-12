@@ -10,7 +10,7 @@ import java.net.URI
 
 @RestController
 @Qualifier("dollar")
-class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(ENTRYPOINT, "Dollars everywhere", nextChallenge) {
+class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(ENTRYPOINT, "A small goblin is running from you.", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "rSZUgsK56oRY3oYk5OxD"
@@ -70,9 +70,9 @@ class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(
             yPosTarget = Y_SIZE
 
         if (xPos == xPosTarget && yPos == yPosTarget)
-            return page.addElement("<a href=\"${nextChallenge?.entrypoint.orEmpty()}\">I'm rich bitch!</a>").build()
+            return page.addElement("<a href=\"${nextChallenge?.entrypoint.orEmpty()}\">Ok ok ok! This way!</a>").build()
 
-        page.addHeadline("I need dollars, dollars, dollars is what I need...")
+        page.addElement("He might know the way...")
 
         for (i in 0..Y_SIZE) {
             var element = ""

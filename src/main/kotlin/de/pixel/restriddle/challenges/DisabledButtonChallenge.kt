@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse
 @RestController
 @Qualifier("disabledButton")
 class DisabledButtonChallenge(@Qualifier("quest") nextChallenge: ChallengeController) : ChallengeController(
-    ENTRYPOINT, "Continue",
+    ENTRYPOINT, "A magic door....",
     nextChallenge
 ) {
 
@@ -21,10 +21,11 @@ class DisabledButtonChallenge(@Qualifier("quest") nextChallenge: ChallengeContro
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
         return getPage()
+            .addElement("It seems to be locked.<br>")
             .addElement(
                 """
                 <form action="$ENTRYPOINT/post" method="post">
-                  <input type="submit" value="Submit" disabled>
+                  <input type="submit" value="open" disabled>
                 </form>
             """.trimIndent()
             )

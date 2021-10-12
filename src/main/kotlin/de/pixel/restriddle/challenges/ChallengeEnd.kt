@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("end")
-class ChallengeEnd : ChallengeController(ENTRYPOINT, "End of line", null) {
+class ChallengeEnd : ChallengeController(ENTRYPOINT, "You did it!", null) {
 
     companion object {
         const val ENTRYPOINT = "d9A5z85UKOh139cBBd16"
@@ -16,7 +16,7 @@ class ChallengeEnd : ChallengeController(ENTRYPOINT, "End of line", null) {
     @GetMapping(ENTRYPOINT)
     fun challenge(): ResponseEntity<String> {
         return getPage()
-            .addHeadline("You reached the end of the challenges. Dont forget about documenting", 2)
+            .addHeadline("You defeated the dragon. Finally the country can live in peace again", 2)
             .addHeadline("\uD83E\uDD73").build()
     }
 
