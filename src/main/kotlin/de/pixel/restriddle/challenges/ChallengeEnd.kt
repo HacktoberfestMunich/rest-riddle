@@ -16,9 +16,8 @@ class ChallengeEnd : ChallengeController(ENTRYPOINT, "You did it!", null) {
     @GetMapping(ENTRYPOINT)
     fun challenge(): ResponseEntity<String> {
         return getPage()
-            .addHeadline("You defeated the dragon. Finally the country can live in peace again", 2)
-            .addHeadline("\uD83E\uDD73").build()
+            .addHeadline("You defeated the dragon. Finally the country can live in peace again.", 2)
+            .addImage("/dead-dragon-gf494ecd4d.png", 900)
+            .build()
     }
-
-
 }
