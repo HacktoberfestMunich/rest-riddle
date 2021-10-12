@@ -72,7 +72,7 @@ class CatchTheDollarChallenge(nextChallenge: SwordEnding) : ChallengeController(
         if (xPos == xPosTarget && yPos == yPosTarget)
             return page.addElement("<a href=\"${nextChallenge?.entrypoint.orEmpty()}\">Ok ok ok! This way!</a>").build()
 
-        page.addElement("He might know the way...")
+        page.addElement("<p>He might know the way...</p>")
 
         for (i in 0..Y_SIZE) {
             var element = ""

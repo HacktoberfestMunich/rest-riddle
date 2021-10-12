@@ -33,12 +33,12 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
     fun challenge(): ResponseEntity<String> {
         val page = getPage()
         return page
-            .addHeadline("A huge rock blocks your way", 5)
+            .addElement("<p>A huge rock blocks your way</p>")
             .addElement("You will need at least five people to move it.")
             .addElement(
                 """
                 <form action="$ENTRYPOINT/post" method="post">
-                  <input type="submit" value="Security Button">
+                  <input type="submit" value="PUSH">
                 </form>
             """.trimIndent()
             ).build()
@@ -50,7 +50,7 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
         ips.add(request.remoteHost)
 
         return if (ips.size >= PEOPLE_COUNT) {
-            getPage().addLink("/${nextChallenge?.entrypoint.orEmpty()}", "Security disabled. Proceed").build()
+            getPage().addLink("${nextChallenge?.entrypoint.orEmpty()}", "Security disabled. Proceed").build()
         } else {
             response.sendRedirect("/$ENTRYPOINT")
             ResponseEntity.ok().build()

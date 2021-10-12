@@ -51,7 +51,7 @@ class StashChallenge(
     fun challenge(): ResponseEntity<String> {
         return when {
             position in 0 until MAX_STACK_SIZE + 1 -> getPage()
-                .addLink("/${ENTRYPOINT}/action", "", true)
+                .addLink("${ENTRYPOINT}/action", "", true)
                 .addElement(drawStack())
                 .build()
             position < 0 -> getPage()
