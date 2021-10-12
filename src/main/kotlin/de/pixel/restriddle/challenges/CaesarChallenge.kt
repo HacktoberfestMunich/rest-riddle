@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("caesar")
-class CaesarChallenge(@Qualifier("allCookies") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, Caesar.decrypt("A secure encryption?"), nextChallenge) {
+class CaesarChallenge(@Qualifier("allCookies") nextChallenge: ChallengeController) : ChallengeController(ENTRYPOINT, "An old disk.", nextChallenge) {
 
     companion object {
         const val ENTRYPOINT = "HUtTz3r5gDwWFjgicaRA"
@@ -16,14 +16,15 @@ class CaesarChallenge(@Qualifier("allCookies") nextChallenge: ChallengeControlle
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
         return getPage()
-            .addElement(Caesar.encrypt("This might be a little tricky."))
-            .addLink(Caesar.encrypt(nextChallenge?.entrypoint.orEmpty()), Caesar.decrypt("Next page")).build()
+            .addElement("Will this help find the way?<br>")
+            .addImage("cypher_disk.png")
+            .addLink(Caesar.encrypt(nextChallenge?.entrypoint.orEmpty()), Caesar.decrypt("Go this way...")).build()
     }
 }
 
 object Caesar {
 
-    private const val key = 3;
+    private const val key = 7;
 
     fun encrypt(s: String, key: Int = this.key): String {
         val offset = key % 26
