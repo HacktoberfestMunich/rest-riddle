@@ -18,7 +18,7 @@ class DeleteMeChallenge(@Qualifier("quest") nextChallenge: ChallengeController) 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
         return getPage()
-            .addElement("Enemies are behind you. You find a magic map shows your tracks.<br>Delete them to avoid that the enemies can chase you down!<br>")
+            .addElement("Enemies are behind you. You find a magic map that shows your tracks.<br>Delete them to avoid that the enemies can chase you down!<br>")
             .addImage("map.png")
             .build()
     }

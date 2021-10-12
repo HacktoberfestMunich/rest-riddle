@@ -27,7 +27,6 @@ class TryAgainChallenge(@Qualifier("imageContainer") nextChallenge: ChallengeCon
             resetCounter()
         }
 
-
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
         val page = getPage()

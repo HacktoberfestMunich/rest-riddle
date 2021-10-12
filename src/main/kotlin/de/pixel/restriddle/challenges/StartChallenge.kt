@@ -18,7 +18,7 @@ class StartChallenge(@Qualifier("hiddenLink") nextChallenge: ChallengeController
         clearCookies(servletRequest)
         return getPage()
             .addHeadline("Welcome strangers!", 2)
-            .addElement("We have chosen because it is said that you are the strongest and smartest women and man in the country.<br>")
+            .addElement("We have chosen you because it is said that you are the strongest and smartest women and man in the country.<br>")
             .addElement("Please help us solve the challanges to kill the beast that threatens the land.<br>")
             .addLink(nextChallenge?.entrypoint.orEmpty(), "Follow the path...").build()
     }
