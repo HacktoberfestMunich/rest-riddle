@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse
 class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOINT, "Have you heard about the keypad?", nextChallenge) {
 
     companion object {
-        const val PASSWORD_SESSION_KEY = "password"
+        const val PASSWORD_SESSION_KEY = "Combo Lock"
         const val ENTRYPOINT = "uQUpNG1dVvaIO8aX21DS"
         const val INITIAL_PASSWORD = "____"
         private const val PASSWORD = "1337"
     }
 
-    @GetMapping("/${ENTRYPOINT}/keypad/{number}")
+    @GetMapping("/${ENTRYPOINT}/key/{number}")
     fun keypad(@PathVariable number: Int, servletRequest: HttpServletRequest): ResponseEntity<String> {
         var password = servletRequest.session.getAttribute(PASSWORD_SESSION_KEY)
         if (password == null) {
@@ -33,12 +33,13 @@ class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOI
 
         return if (newPass == PASSWORD) {
             getPage()
-                .addLink(nextChallenge?.entrypoint.orEmpty(), "Follow the bird")
+                .addLink(nextChallenge?.entrypoint.orEmpty(), "Open the door")
                 .build()
         } else {
             getPage()
-                .addElement("")
-                .addHeadline("Password:", 2)
+                .addElement("You find a door saying \"Only the leet may pass!\".<br>It is locked by a combination lock. <br>")
+                .addImage("combolock.png")
+                .addElement("Combination:<br>")
                 .addElement("<pre>${newPass}</pre>")
                 .build()
         }
@@ -46,6 +47,6 @@ class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOI
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(servletResponse: HttpServletResponse) {
-        servletResponse.sendRedirect("/${ENTRYPOINT}/keypad/1")
+        servletResponse.sendRedirect("/${ENTRYPOINT}/key/1")
     }
 }
