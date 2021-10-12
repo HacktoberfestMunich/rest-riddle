@@ -25,7 +25,7 @@ class HackermanChallenge(@Qualifier("deleteme") nextChallenge: ChallengeControll
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(servletRequest: HttpServletRequest): ResponseEntity<String> {
         return getPage()
-            .addLink(HACKERMAN_YOUTUBE, "HACKERMAN'S HACKING TUTORIALS", true)
+            .addLink(HACKERMAN_YOUTUBE, "Castle of Bärenstein", true)
             .addElement(
                 """
                 <br>
