@@ -44,7 +44,7 @@ class StashChallenge(
 
     @DeleteMapping("/${ENTRYPOINT}/action")
     fun actionPop(response: HttpServletResponse) {
-        if (position > 0)
+        if (position >= 0)
             position--
         response.sendRedirect("/${ENTRYPOINT}")
     }
@@ -52,8 +52,8 @@ class StashChallenge(
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(): ResponseEntity<String> {
         return when {
-            position in 0 until MAX_STACK_SIZE + 1 -> getPage()
-                .addElement("All or nothing he yelled at us. Stash all the boxes or get them out of the way.<br>")
+            position in 0 until MAX_STACK_SIZE -> getPage()
+                .addElement("All or nothing he yelled at us. Stash all the boxes or get them out of my way.<br>")
                 .addLink("${ENTRYPOINT}/action", "", true)
                 .addElement(drawStack())
                 .build()
