@@ -1,5 +1,6 @@
 package de.pixel.restriddle.challenges
 
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -18,6 +19,7 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
     ChallengeController(ENTRYPOINT, "Security button", nextChallenge) {
 
     companion object {
+        private val LOGGER = LoggerFactory.getLogger(SimultaneouslyPressChallenge::class.java)
         const val ENTRYPOINT = "0k6oKGGPTsSJr3XhTjVc"
         private const val PEOPLE_COUNT = 5
     }
@@ -47,7 +49,7 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
 
     @PostMapping("/${ENTRYPOINT}/post")
     fun accept(request: HttpServletRequest, response: HttpServletResponse): ResponseEntity<String> {
-        ips.add(request.remoteHost)
+        ips.add(getIp(request))
 
         return if (ips.size >= PEOPLE_COUNT) {
             getPage().addLink("${nextChallenge?.entrypoint.orEmpty()}", "Security disabled. Proceed").build()
@@ -59,5 +61,19 @@ class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: Challenge
 
     private fun reset() {
         ips = mutableSetOf()
+    }
+
+    private fun getIp(request: HttpServletRequest): String {
+        val xRealIp = request.getHeader("X-Real-IP")
+        val xForwared = request.getHeader("X-Forwarded-For")
+        val remoteAddr = request.remoteAddr
+
+        val remoteIp = when {
+            xRealIp != null -> xRealIp
+            xForwared != null -> xForwared
+            else -> remoteAddr
+        }
+        LOGGER.debug("Detected ip: $remoteIp")
+        return remoteIp
     }
 }
