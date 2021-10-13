@@ -20,7 +20,7 @@ class AnyOptionsChallenge(@Qualifier("stash") nextChallenge: ChallengeController
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(@RequestParam allParams: Map<String, String>): ResponseEntity<String> {
         return if (allParams.isNotEmpty()) {
-            getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "!").build()
+            getPage().addElement("Ah now I am feeling better. Thank you Sir!<br>").addLink(nextChallenge?.entrypoint.orEmpty(), "This way.").build()
         } else {
             return getPage().addElement("You continue to follow the narrow path when you suddenly see a badly dressed nervous old man sitting behind the next bend. Options! He cries. Why do I have no options?<br>")
                 .addImage("/insane_guy.png").build()
