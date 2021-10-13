@@ -16,7 +16,7 @@ class StashChallenge(
     @Qualifier("fanout") private val lowerChallenge: ChallengeController
 ) :
     ChallengeController(
-        ENTRYPOINT, "Stashing things",
+        ENTRYPOINT, "Guard of the stashes",
         null
     ) {
 
@@ -47,14 +47,20 @@ class StashChallenge(
     fun challenge(): ResponseEntity<String> {
         return when {
             position in 0 until MAX_STACK_SIZE -> getPage()
-                .addElement("All or nothing he yelled at us. Stash all the boxes or get them out of my way.<br>")
+                .addElement("<div style=\"float:left\">")
+                .addElement("Hello my Friends! I am <string>Herald</strong> a famous in this country.<br>")
+                .addElement("Do you see this big <string>stack</strong> of boxes? We somehow have to get them out our way.<br>But at least... do not stack it even higher.<br>")
+                .addImage("herald.png")
+                .addElement("</div>")
+                .addElement("<div style=\"float:right\">")
                 .addElement(drawStack())
+                .addElement("</div>")
                 .build()
             position < 0 -> getPage()
-                .addLink(upperChallenge.entrypoint, "Stash emptied")
+                .addLink(upperChallenge.entrypoint, "You can continue")
                 .build()
             else -> getPage()
-                .addLink(lowerChallenge.entrypoint, "Stash Overflow")
+                .addLink(lowerChallenge.entrypoint, "The stash of boxes collapsed")
                 .build()
         }
     }

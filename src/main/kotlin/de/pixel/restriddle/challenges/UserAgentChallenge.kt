@@ -19,7 +19,7 @@ class UserAgentChallenge(nextChallenge: BeltEnding) : ChallengeController(
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(@RequestHeader(value = "User-Agent") userAgent: String): ResponseEntity<String> {
-        return if (userAgent.contains("guard", true)) {
+        return if (userAgent.contains("Herald", true)) {
             getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You may proceed.").addImage("guard.png").build()
         } else {
             getPage().addElement("<p>A guard blocks the way.<br>\"Who are you $userAgent? Never heard of such a strange name... Only guards may pass.\"</p>").addImage("guard.png").build()
