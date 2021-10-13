@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Qualifier("userAgent")
-class UserAgentChallenge(nextChallenge: BeltEnding) : ChallengeController(
+class UserAgentChallenge(@Qualifier("simultanPress") nextChallenge: ChallengeController) : ChallengeController(
     ENTRYPOINT,
     "Dwarf Guard", nextChallenge
 ) {

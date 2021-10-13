@@ -15,7 +15,7 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 @RestController
 @Qualifier("simultanPress")
-class SimultaneouslyPressChallenge(@Qualifier("dollar") nextChallenge: ChallengeController) :
+class SimultaneouslyPressChallenge(nextChallenge: BeltEnding) :
     ChallengeController(ENTRYPOINT, "Security button", nextChallenge) {
 
     companion object {

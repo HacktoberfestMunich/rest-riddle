@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse
 
 @RestController
 @Qualifier("keypad")
-class KeypadChallenge(nextChallenge: ArmorEnding) : ChallengeController(ENTRYPOINT, "Have you heard about the keypad?", nextChallenge) {
+class KeypadChallenge(@Qualifier("tryagain") nextChallenge: ChallengeController) : ChallengeController(
+    ENTRYPOINT, "Have you heard about the keypad?",
+    nextChallenge
+) {
 
     companion object {
         const val PASSWORD_SESSION_KEY = "Combo Lock"

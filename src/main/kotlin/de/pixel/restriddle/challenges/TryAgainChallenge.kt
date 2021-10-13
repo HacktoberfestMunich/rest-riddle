@@ -9,7 +9,7 @@ import kotlin.time.ExperimentalTime
 @ExperimentalTime
 @RestController
 @Qualifier("tryagain")
-class TryAgainChallenge(@Qualifier("imageContainer") nextChallenge: ChallengeController) :
+class TryAgainChallenge(@Qualifier("caesar") nextChallenge: ChallengeController) :
     ChallengeController(ENTRYPOINT, "Tree trunk", nextChallenge) {
 
     companion object {

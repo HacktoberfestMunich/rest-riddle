@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @Qualifier("fanout")
 class FanOutChallenge(
-    @Qualifier("simultanPress") controller1: ChallengeController,
-    @Qualifier("tryagain") controller2: ChallengeController,
-    @Qualifier("caesar") controller3: ChallengeController
+    @Qualifier("dollar") controller1: ChallengeController,
+    @Qualifier("imageContainer") controller2: ChallengeController,
+    @Qualifier("allCookies") controller3: ChallengeController
 ) : ChallengeController(ENTRYPOINT, "Crossroads", null) {
 
     companion object {
@@ -29,7 +29,7 @@ class FanOutChallenge(
     fun challenge(): ResponseEntity<String> {
         return getPage()
             .addElement("I wonder where these paths will lead me...")
-            .addLink(controllers.random().nextChallenge?.entrypoint.orEmpty(), "...choose a way")
+            .addLink(controllers.random().entrypoint, "...choose a way")
             .build()
     }
 
