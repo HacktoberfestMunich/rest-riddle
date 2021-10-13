@@ -22,7 +22,14 @@ class UserAgentChallenge(nextChallenge: BeltEnding) : ChallengeController(
         return if (userAgent.contains("Herald", true)) {
             getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You may proceed.").addImage("guard.png").build()
         } else {
-            getPage().addElement("<p>A guard blocks the way.<br>\"Who are you $userAgent? Never heard of such a strange name... Only guards may pass.\"</p>").addImage("guard.png").build()
+            var agent = userAgent
+            try {
+                agent = userAgent.replace(" +\\([^)]+\\)".toRegex(), "")
+                agent = agent.replace(" +\\([^)]+\\)".toRegex(), "")
+                agent = agent.split(" ")[2].split("/")[0]
+            } catch (e: Exception) {}
+
+            getPage().addElement("<p>A guard blocks the way.<br>\"Who are you ${agent}? Never heard of such a strange name... Only guards may pass.\"</p>").addImage("guard.png").build()
         }
     }
 }
