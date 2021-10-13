@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @Qualifier("userAgent")
 class UserAgentChallenge(nextChallenge: BeltEnding) : ChallengeController(
     ENTRYPOINT,
-    "We know what you are using", nextChallenge
+    "Dwarf Guard", nextChallenge
 ) {
 
     companion object {
@@ -19,10 +19,10 @@ class UserAgentChallenge(nextChallenge: BeltEnding) : ChallengeController(
 
     @GetMapping("/${ENTRYPOINT}")
     fun challenge(@RequestHeader(value = "User-Agent") userAgent: String): ResponseEntity<String> {
-        return if (userAgent.contains("power-pc", true)) {
-            getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You may proceed.").build()
+        return if (userAgent.contains("guard", true)) {
+            getPage().addLink(nextChallenge?.entrypoint.orEmpty(), "You may proceed.").addImage("guard.png").build()
         } else {
-            getPage().addElement("<p>Only <strong>Power-PC</strong> is supported for this challenge.</p>").build()
+            getPage().addElement("<p>A guard blocks the way.<br>\"Who are you $userAgent? Never heard of such a strange name... Only guards may pass.\"</p>").addImage("guard.png").build()
         }
     }
 }
