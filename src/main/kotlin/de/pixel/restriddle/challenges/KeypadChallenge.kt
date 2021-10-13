@@ -31,7 +31,8 @@ class KeypadChallenge(@Qualifier("tryagain") nextChallenge: ChallengeController)
         }
         val oldPassword = password as String
 
-        val newPass = oldPassword.drop(1) + number
+        var newPass = (oldPassword + number)
+        newPass = newPass.substring(newPass.length - PASSWORD.length)
         servletRequest.session.setAttribute(PASSWORD_SESSION_KEY, newPass)
 
         return if (newPass == PASSWORD) {
