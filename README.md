@@ -20,6 +20,16 @@ To start the project via terminal type:
 
 The project can of course also be opened with any IDE, for myself I use IntelliJ IDEA.
 
+## Run via docker
+
+To run the riddles via a docker image, we provide images for each version in th packages of this repository.
+
+To start up the riddle server on port 8080 in docker use:
+
+```shell
+docker run -p 8080:8080 ghcr.io/hacktoberfestmunich/rest-riddle:latest
+```
+
 ## Challenge overview
 
 To see the flow of the current challenges look at [the draw.io diagram](./challenges.drawio.png)
